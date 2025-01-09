@@ -1,14 +1,17 @@
 package testUtils;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sparkrock.utils.Driver;
+import pages.BasePage;
 import pages.IPage;
 
 import java.time.Duration;
+import java.util.Locale;
 
 
 public class TestUtils {
@@ -94,6 +97,20 @@ public class TestUtils {
             // Stale element durumu için yeniden deneme
             webElement = handlingStaleElement(currentPage, elementName);
             return isElementState(currentPage, webElement, state, elementName, timeoutInSeconds);
+        }
+    }
+
+    public static String getGeneratedData(String elementValue) {
+        try {
+            Faker faker = new Faker(Locale.UK);
+            return switch (elementValue.toLowerCase()) {
+                case "generate first name" -> faker.name().firstName();
+                case "generate last name" -> faker.name().lastName();
+                case "generate zip code" -> faker.address().zipCode();
+                default -> elementValue;
+            };
+        } catch (Exception e) {
+            throw new RuntimeException("Error in " + BasePage.class.getName() + ".getGenerateData: " + e.getMessage(), e);
         }
     }
 }

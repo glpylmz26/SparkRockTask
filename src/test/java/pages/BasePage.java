@@ -7,6 +7,10 @@ import org.sparkrock.utils.Driver;
 public class BasePage {
     public static HomePage homePage = new HomePage();
     public static InventoryPage inventoryPage = new InventoryPage();
+    public static CartPage cartPage = new CartPage();
+    public static CheckOutStepOne checkOutStepOne = new CheckOutStepOne();
+    public static CheckOutStepTwo checkOutStepTwo = new CheckOutStepTwo();
+    public static CheckOutComplete checkOutComplete = new CheckOutComplete();
 
     public static String getPageNameFromCurrentUrl() {
         try {
@@ -20,7 +24,13 @@ public class BasePage {
 
     public static IPage getPage(String pageName) {
         return switch (pageName.toLowerCase()) {
-            case "" -> homePage; case "inventory" -> inventoryPage; default -> {
+            case "" -> homePage;
+            case "inventory" -> inventoryPage;
+            case "cart" -> cartPage;
+            case "checkout-step-one" -> checkOutStepOne;
+            case "checkout-step-two" -> checkOutStepTwo;
+            case "checkout-complete" -> checkOutComplete;
+            default -> {
                 System.out.println("Page not found: " + pageName + " in " + BasePage.class.getSimpleName()); yield null;
             }
         };
