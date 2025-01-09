@@ -16,6 +16,15 @@ public class InventoryPage extends BasePage implements IPage {
             case "Products Header" -> {
                 yield Driver.getDriver().findElement(By.xpath("//span[@data-test='title'][contains(.,'Products')]"));
             }
+            case "Sauce Labs Backpack Add to Cart Button" -> {
+                yield Driver.getDriver().findElement(By.id("add-to-cart-sauce-labs-backpack"));
+            }
+            case "Shopping Cart Badge" -> {
+                yield Driver.getDriver().findElement(By.cssSelector("[data-test=\"shopping-cart-badge\"]"));
+            }
+            case "Sauce Labs Bike Light Add to Cart Button" -> {
+                yield Driver.getDriver().findElement(By.id("add-to-cart-sauce-labs-bike-light"));
+            }
             default -> {
                 System.out.println(elementInformation[0] + " could not be found in " + this.getClass().getSimpleName()); yield null;
             }

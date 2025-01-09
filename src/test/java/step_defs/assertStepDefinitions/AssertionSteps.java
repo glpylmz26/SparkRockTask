@@ -1,5 +1,6 @@
 package step_defs.assertStepDefinitions;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.sparkrock.utils.ConfigurationReader;
@@ -29,6 +30,13 @@ public class AssertionSteps {
         String pageName = BasePage.getPageNameFromCurrentUrl();
         currentPage = BasePage.getPage(pageName);
         Assert.assertTrue(isElementState(currentPage, currentPage.getSelector(elementName,elementText,elementTextValue), state, elementName, Integer.parseInt(ConfigurationReader.get("defaultTimeOut"))));
+    }
+
+    @Given("the {string} had the text {string}")
+    public void the_had_the_text(String elementName, String expectedText) {
+        String pageName = BasePage.getPageNameFromCurrentUrl();
+        currentPage = BasePage.getPage(pageName);
+        Assert.assertEquals(expectedText.trim(),currentPage.getSelector(elementName).getText().trim());
     }
 
 }
