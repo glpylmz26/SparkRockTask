@@ -17,9 +17,10 @@ Feature: Swag Labs Home Page Login
     Then the "Error Message" is "Displayed" where the "Error Message" is <Error Message Text>
 
     Examples:
-      | Username          | Password       | Error Message Text                   |
-      | "locked_out_user" | ""             | "Epic sadface: Password is required" |
-      | ""                | "secret_sauce" | "Epic sadface: Username is required" |
+      | Username          | Password         | Error Message Text                                                          |
+      | "locked_out_user" | ""               | "Epic sadface: Password is required"                                        |
+      | ""                | "secret_sauce"   | "Epic sadface: Username is required"                                        |
+      | "wrong username"  | "wrong password" | "Epic sadface: Username and password do not match any user in this service" |
 
 
 
