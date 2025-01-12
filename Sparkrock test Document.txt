@@ -1,0 +1,56 @@
+TC Title: Adding Items to Cart - Swag Labs Inventory Page
+1. TC Description:
+This test aims to validate the functionality of adding items to the shopping cart. It specifically ensures that after adding multiple items, the shopping cart badge correctly displays the updated item count.
+
+2. Prerequisites:
+
+The user must have navigated to the "Home Page" URL.
+The user must be logged in with valid credentials:
+Username: standard_user
+Password: secret_sauce
+The user must have added at least one item (e.g., "Sauce Labs Backpack") to the shopping cart.
+The shopping cart badge must display "1" as the initial item count.
+
+
+
+TC Title: Completing Checkout Form - Swag Labs Checkout Step One Page
+1. TC Description:
+This test verifies the checkout process on the Swag Labs application. Specifically, it validates that after filling in the required details (First Name, Last Name, and Zip Code) on the checkout form and proceeding with the "Finish" action, the "Order Completed" title is displayed as expected.
+
+2. Prerequisites:
+The user must have navigated to the "Home Page".
+The user must be logged in with valid credentials:
+Username: standard_user
+Password: secret_sauce
+The user must have added the "Sauce Labs Backpack" to the shopping cart.
+The user must have navigated to the Checkout Page by:
+Clicking on the "Shopping Cart Badge."
+Clicking on the "Checkout Button."
+
+3. Test Strategy:
+The test will follow the manual execution and then be automated using [chosen tool and framework] (e.g., Selenium with Cucumber).
+The following scenarios will be validated:
+Correctly setting valid information in the required fields:
+First Name Field
+Last Name Field
+Zip/Postal Code Field
+Navigating through the checkout steps by clicking:
+"Continue Button."
+"Finish Button."
+Verifying the presence of the "Order Completed Title."
+
+Test Strategy
+Automation Tools: Use Selenium WebDriver for automating the test cases. Integrate with TestNG for test execution and reporting.
+Test Data Management: Store valid and invalid test data in a centralized file (e.g., Excel or JSON).
+Environment: Test in the staging environment with stable build configurations.
+
+Approach:
+Focus on UI Automation for login and navigation.
+Automate functional flows like fund transfer and account creation.
+Include API tests for backend validations (e.g., using Postman or Rest Assured).
+
+Rationale
+Login Testing: Ensures that only authorized users can access the system, maintaining security.
+Fund Transfer Testing: Validates the core banking functionality, critical for user satisfaction.
+Account Creation Testing: Verifies usability and functionality for adding new accounts, enhancing user experience.
+Negative Scenarios: Ensures robustness by handling edge cases and invalid inputs gracefully.
